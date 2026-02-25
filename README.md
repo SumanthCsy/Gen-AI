@@ -44,7 +44,7 @@ Once the terminal says `Running on http://0.0.0.0:5000`, you can access the app:
 
 ### How to use during Presentation:
 1.  **Select Your Image**: Click the upload area or drop a blurry image.
-2.  **Processing**: The system uses the **RTX GPU** to process the image in milliseconds.
+2.  **Processing**: The system uses the **GPU** or **CPU** to process the image in milliseconds. (**CPU** is used if **GPU** is not available)
 3.  **Comparison Slider**: Once finished, use the **white slider handle** to swipe between the Original (left) and AI-Enhanced (right) versions to show the judges the clarity boost!
 
 ---
@@ -55,4 +55,4 @@ Once the terminal says `Running on http://0.0.0.0:5000`, you can access the app:
 - **Inference**: GPU-accelerated tensor math via PyTorch & CUDA.
 - **Frontend**: Premium UI with real-time interactive comparison.
 
-Good luck, 4Visionaries! 🏁
+Project By, 4Visionaries! 🏁
