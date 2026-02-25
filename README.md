@@ -43,19 +43,19 @@ The model was trained on the **DIV2K (Diverse 2K resolution high-quality images)
 Here is the **4Visionaries** GenAI system in action:
 
 #### 1. Modern Dashboard & Upload Interface
-![GenAI Dashboard](screenshots/image1.png)
+![GenAI Dashboard](Screenshots/image1.png)
 *A sleek, glassmorphic UI designed for easy navigation and team highlighting.*
 
 #### 2. Real-time Enhancement (Slider View)
-![Enhancement Slider](screenshots/image2.png)
+![Enhancement Slider](Screenshots/image2.png)
 *Comparison between Original (Left) and AI-Enhanced (Right) document pixels.*
 
 #### 3. Technical Performance Analytics
-![Metrics Table](screenshots/image3.png)
+![Metrics Table](Screenshots/image3.png)
 *Live analytics showing PSNR, Architecture details, and GPU acceleration status.*
 
 #### 4. Mobile Responsive Design
-![Mobile View](screenshots/image4.png) 
+![Mobile View](Screenshots/image4.png) 
 *Optimized for seamless performance on smartphones and tablets.*
 
 ---
