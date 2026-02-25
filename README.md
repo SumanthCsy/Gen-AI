@@ -18,7 +18,7 @@ We used **Residual Learning** and **PixelShuffle** upsampling to ensure the best
 
 ## 🛠 Setup & Presentation Guide
 
-Follow these steps to run the project on any Windows machine with an NVIDIA GPU.
+Follow these steps to run the project on any Windows machine with a GPU or CPU.
 
 ### 1. Open the Project
 Open the `LR_HR_Enhancer` folder in **VS Code**. 
