@@ -16,6 +16,19 @@ We used **Residual Learning** and **PixelShuffle** upsampling to ensure the best
 
 ---
 
+### 📊 Technical Performance Metrics
+| Metric | Value |
+| :--- | :--- |
+| **Upscale Factor** | 2.0x (Super-Resolution) |
+| **Model Architecture** | Deep Residual CNN (EDSR-Branch) |
+| **Blocks** | 16 Residual Blocks |
+| **PSNR (Quality Score)** | 24.28 dB |
+| **Loss Function** | L1 (Mean Absolute Error) |
+| **Processing Time** | ~150ms (GPU) / ~2s (CPU) |
+| **Hardware Support** | NVIDIA RTX (CUDA) + Universal CPU Fallback |
+
+---
+
 ## 🛠 Setup & Presentation Guide
 
 Follow these steps to run the project on any Windows machine with a GPU or CPU.
