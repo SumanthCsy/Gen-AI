@@ -42,12 +42,8 @@ Here is the **4Visionaries** GenAI system in action:
 ![Enhancement Slider](Screenshots/image2.png)
 *Comparison between Original (Left) and AI-Enhanced (Right) document pixels.*
 
-#### 3. Technical Performance Analytics
-![Metrics Table](Screenshots/image3.png)
-*Live analytics showing PSNR, Architecture details, and GPU acceleration status.*
-
 #### 4. Mobile Responsive Design
-![Mobile View](Screenshots/image4.png) 
+![Mobile View](Screenshots/image3.png) 
 *Optimized for seamless performance on smartphones and tablets.*
 
 ---
