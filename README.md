@@ -2,10 +2,10 @@
 
 ## 🚀 Team: 4Visionaries
 **Team Members:**
-- G.Prasanna (2367A6624)
-- A.Sri Nithya (2367A6601)
-- A.Sathwika (2367A6622)
-- G.haindavi (2367A6603)
+- G.Prasanna (23671A6624)
+- A.Sri Nithya (23671A6603)
+- G.Sathvika (23671A6622)
+- A.Haindavi (23671A6601)
 
 ---
 
