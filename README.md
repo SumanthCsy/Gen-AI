@@ -43,7 +43,7 @@ Here is the **4Visionaries** GenAI system in action:
 *Comparison between Original (Left) and AI-Enhanced (Right) document pixels.*
 
 #### 4. Mobile Responsive Design
-![Mobile View](Screenshots/image3.png) 
+![Mobile View](Screenshots/image4.png) 
 *Optimized for seamless performance on smartphones and tablets.*
 
 ---
