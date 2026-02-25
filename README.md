@@ -55,7 +55,7 @@ Here is the **4Visionaries** GenAI system in action:
 *Live analytics showing PSNR, Architecture details, and GPU acceleration status.*
 
 #### 4. Mobile Responsive Design
-![Mobile View](screenshots/image4.png)
+![Mobile View](screenshots/image4.png) 
 *Optimized for seamless performance on smartphones and tablets.*
 
 ---
