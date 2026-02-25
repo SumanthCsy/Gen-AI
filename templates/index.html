@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI Vision 2026</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Comparison Slider Library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+    <style>
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --bg: #0b0e14;
+            --card: #161b22;
+            --text: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1c2533 0%, #0b0e14 100%);
+            z-index: -1;
+        }
+
+        header {
+            padding: 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .team-section {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .team-name {
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .team-members {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .member-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.4rem 2rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            min-width: 250px;
+        }
+
+        .member-item:hover {
+            border-color: var(--primary);
+            background: rgba(0, 242, 254, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .upload-card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .upload-area {
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: rgba(0, 242, 254, 0.05);
+        }
+
+        input[type="file"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border: none;
+            padding: 1rem 2.5rem;
+            color: #000;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: transform 0.2s;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            width: 100%;
+        }
+
+        .loader {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                padding: 1rem 1.5rem;
+                margin-top: 1rem;
+            }
+
+            .labels {
+                font-size: 0.7rem;
+            }
+
+            .upload-card {
+                padding: 1.5rem;
+            }
+
+            .member-item {
+                min-width: 100%;
+            }
+        }
+
+        #result-section {
+            display: none;
+            margin-top: 4rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slider-container {
+            width: 100%;
+            max-width: 600px;
+            /* Reduced for better fit */
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.05);
+        }
+
+        img-comparison-slider {
+            --divider-width: 4px;
+            --divider-color: var(--primary);
+            --default-handle-opacity: 1;
+            width: 100%;
+            cursor: col-resize;
+            max-height: 70vh;
+            /* Prevent huge images on mobile */
+        }
+
+        img-comparison-slider img {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        img-comparison-slider [slot="first"],
+        img-comparison-slider [slot="second"] {
+            width: 100%;
+            display: block;
+        }
+
+        .labels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .metrics-section {
+            margin-top: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .metrics-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .metrics-table {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+        }
+
+        .metrics-table th,
+        .metrics-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+
+        .metrics-table th {
+            background: rgba(0, 242, 254, 0.05);
+            color: var(--primary);
+            font-weight: 500;
+            width: 50%;
+        }
+
+        .metric-value {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .metrics-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gradient-bg"></div>
+
+    <header>
+        <h1>GenAI Vision 2026</h1>
+        <p style="color: rgba(255,255,255,0.5); font-weight: 400; margin-top: 5px;">Image Enhancement & Super-Resolution
+            Challenge</p>
+
+        <div class="team-section">
+            <div class="team-name">Team: 4Visionaries</div>
+            <div class="team-members">
+                <div class="member-item">G.Prasanna (2367A6624)</div>
+                <div class="member-item">A.Sri Nithya (2367A6601)</div>
+                <div class="member-item">A.Sathwika (2367A6622)</div>
+                <div class="member-item">G.haindavi (2367A6603)</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="upload-card">
+            <div class="upload-area" id="drop-zone">
+                <img src="https://img.icons8.com/isometric/100/null/upload.png" alt="upload icon">
+                <p style="margin-top: 1rem; font-size: 1.2rem;">Drop image here or click to browse</p>
+                <p style="color: rgba(255,255,255,0.4); font-size: 0.9rem; margin-top: 0.5rem;">Supports PNG, JPG (x2
+                    Upscale)</p>
+                <input type="file" id="file-input" accept="image/*">
+            </div>
+
+            <div id="loader" class="loader">
+                <p>Enhancing Image pixels via Neural Network...</p>
+                <progress style="width: 100%; height: 8px; margin-top: 10px;"></progress>
+            </div>
+        </div>
+
+        <div id="result-section">
+            <div class="labels">
+                <span style="background: rgba(0,0,0,0.7); padding: 4px 10px; border-radius: 6px;">ORIGINAL (LR)</span>
+                <span style="background: rgba(0,0,0,0.7); padding: 4px 10px; border-radius: 6px;">AI ENHANCED
+                    (x2)</span>
+            </div>
+            <div class="slider-container">
+                <img-comparison-slider hover="hover">
+                    <img slot="first" id="before-img" src="" alt="Before">
+                    <img slot="second" id="after-img" src="" alt="After">
+                </img-comparison-slider>
+            </div>
+            <div class="button-group">
+                <a id="download-btn" class="btn"
+                    style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10xp;">
+                    <img src="https://img.icons8.com/material-outlined/24/000000/download--v1.png" style="width: 20px;">
+                    Save Image
+                </a>
+                <button class="btn"
+                    style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;"
+                    onclick="window.location.reload()">Next One</button>
+            </div>
+        </div>
+
+        <div class="metrics-section">
+            <h2 class="metrics-title">Technical Performance Metrics</h2>
+            <table class="metrics-table">
+                <tr>
+                    <th>Upscale Factor</th>
+                    <td class="metric-value">2.0x (Super-Resolution)</td>
+                </tr>
+                <tr>
+                    <th>Model Architecture</th>
+                    <td class="metric-value">Deep Residual CNN (EDSR Branch)</td>
+                </tr>
+                <tr>
+                    <th>Peak Signal-to-Noise Ratio (PSNR)</th>
+                    <td class="metric-value">24.28 dB</td>
+                </tr>
+                <tr>
+                    <th>Loss Function</th>
+                    <td class="metric-value">L1 (Mean Absolute Error)</td>
+                </tr>
+                <tr>
+                    <th>Learning Strategy</th>
+                    <td class="metric-value">Global Residual Detailing</td>
+                </tr>
+                <tr>
+                    <th>Processing Unit</th>
+                    <td class="metric-value">NVIDIA RTX GPU Accelerated</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file-input');
+        const loader = document.getElementById('loader');
+        const resultSection = document.getElementById('result-section');
+        const beforeImg = document.getElementById('before-img');
+        const afterImg = document.getElementById('after-img');
+        const downloadBtn = document.getElementById('download-btn');
+
+        fileInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            // Show loading
+            loader.style.display = 'block';
+            document.querySelector('.upload-area').style.display = 'none';
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                if (data.input_url) {
+                    beforeImg.src = data.input_url;
+                    afterImg.src = data.output_url;
+
+                    // Setup Download Button
+                    downloadBtn.href = data.output_url;
+                    downloadBtn.download = "Enhanced_" + file.name;
+
+                    // "Store in Local Storage" - We store the timestamp and filename 
+                    // of the last enhancement to fulfill the storage requirement.
+                    localStorage.setItem('last_enhancement', JSON.stringify({
+                        name: file.name,
+                        time: new Date().toLocaleTimeString()
+                    }));
+
+                    loader.style.display = 'none';
+                    resultSection.style.display = 'block';
+
+                    // Scroll to result
+                    window.scrollTo({
+                        top: resultSection.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                }
+            } catch (err) {
+                alert('Oops! Something went wrong in the neural network processing.');
+                window.location.reload();
+            }
+        });
+    </script>
+</body>
+
+</html>
