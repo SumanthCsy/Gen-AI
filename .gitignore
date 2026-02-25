@@ -38,8 +38,6 @@ venv/
 .vscode/
 .idea/
 
-# Flask
-static/uploads/*
-static/results/*
-!static/uploads/.gitkeep
-!static/results/.gitkeep
+# Flask (Temporary/Stateless)
+static/uploads/
+static/results/
