@@ -29,6 +29,37 @@ We used **Residual Learning** and **PixelShuffle** upsampling to ensure the best
 
 ---
 
+### 📚 Training Dataset
+The model was trained on the **DIV2K (Diverse 2K resolution high-quality images)** dataset, a standard benchmark for Image Super-Resolution.
+- **Dataset Structure:** 
+  - `DIV2K_train_HR/`: Ground truth High-Resolution images.
+  - `DIV2K_train_LR_unknown/`: Low-Resolution images with complex downscaling.
+  - `DIV2K_valid_HR/` & `DIV2K_valid_LR_unknown/`: Validation sets.
+- **Goal:** Learning the non-linear mapping from low-resolution pixels to original sharpness.
+
+---
+
+### 📸 Project Screenshots
+Here is the **4Visionaries** GenAI system in action:
+
+#### 1. Modern Dashboard & Upload Interface
+![GenAI Dashboard](screenshots/image1.png)
+*A sleek, glassmorphic UI designed for easy navigation and team highlighting.*
+
+#### 2. Real-time Enhancement (Slider View)
+![Enhancement Slider](screenshots/image2.png)
+*Comparison between Original (Left) and AI-Enhanced (Right) document pixels.*
+
+#### 3. Technical Performance Analytics
+![Metrics Table](screenshots/image3.png)
+*Live analytics showing PSNR, Architecture details, and GPU acceleration status.*
+
+#### 4. Mobile Responsive Design
+![Mobile View](screenshots/image4.png)
+*Optimized for seamless performance on smartphones and tablets.*
+
+---
+
 ## 🛠 Setup & Presentation Guide
 
 Follow these steps to run the project on any Windows machine with a GPU or CPU.

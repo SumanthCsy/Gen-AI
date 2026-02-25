@@ -41,3 +41,6 @@ venv/
 # Flask (Temporary/Stateless)
 static/uploads/
 static/results/
+
+# Screenshots (Included for Documentation)
+!screenshots/
