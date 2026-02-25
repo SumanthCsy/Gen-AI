@@ -135,4 +135,6 @@ def upload():
 
 if __name__ == '__main__':
     # Listen on all interfaces for network hosting
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    # Debug=True helps reflect HTML changes instantly
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.run(host='0.0.0.0', port=5000, debug=True)
