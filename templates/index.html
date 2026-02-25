@@ -430,7 +430,7 @@
                 });
                 const data = await response.json();
 
-                if (data.input_url) {
+                if (response.ok && data.input_url) {
                     beforeImg.src = data.input_url;
                     afterImg.src = data.output_url;
 
@@ -438,8 +438,7 @@
                     downloadBtn.href = data.output_url;
                     downloadBtn.download = "Enhanced_" + file.name;
 
-                    // "Store in Local Storage" - We store the timestamp and filename 
-                    // of the last enhancement to fulfill the storage requirement.
+                    // "Store in Local Storage"
                     localStorage.setItem('last_enhancement', JSON.stringify({
                         name: file.name,
                         time: new Date().toLocaleTimeString()
@@ -453,9 +452,12 @@
                         top: resultSection.offsetTop - 50,
                         behavior: 'smooth'
                     });
+                } else {
+                    alert('Server Error: ' + (data.error || 'Unknown error'));
+                    window.location.reload();
                 }
             } catch (err) {
-                alert('Oops! Something went wrong in the neural network processing.');
+                alert('Network Error: ' + err.message);
                 window.location.reload();
             }
         });
