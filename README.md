@@ -97,6 +97,6 @@ Once the terminal says `Running on http://0.0.0.0:5000`, you can access the app:
 - **Architecture**: Custom Residual CNN (EDSR Branch).
 - **Optimization**: Global Residual Learning (learning only the sharpness).
 - **Inference**: GPU-accelerated tensor math via PyTorch & CUDA.
-- **Frontend**: Premium UI with real-time interactive comparison..
+- **Frontend**: Premium UI with real-time interactive comparison.
 
 Project By, 4Visionaries! 🏁
