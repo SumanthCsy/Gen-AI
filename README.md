@@ -1,13 +1,5 @@
 # GenAI Vision 2026: Image Enhancement & Super-Resolution Challenge
 
-## 🚀 Team: 4Visionaries
-**Team Members:**
-- G.Prasanna (23671A6624)
-- A.Sri Nithya (23671A6603)
-- G.Sathvika (23671A6622)
-- A.Haindavi (23671A6601)
-
----
 
 ## What is this?
 This project is an AI-powered Image Super-Resolution tool. It takes a low-quality, blurry image and uses a **Deep Residual CNN (EDSR-style)** to reconstruct the missing pixels, resulting in a **2x larger and significantly sharper** version. 
@@ -99,4 +91,4 @@ Once the terminal says `Running on http://0.0.0.0:5000`, you can access the app:
 - **Inference**: GPU-accelerated tensor math via PyTorch & CUDA.
 - **Frontend**: Premium UI with real-time interactive comparison..
 
-Project By, 4Visionaries! 🏁
+Project By, Sumanth Csy! 🏁
